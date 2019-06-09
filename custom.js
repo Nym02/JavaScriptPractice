@@ -124,34 +124,81 @@
 // var ages = arrayCalc(years, calculateAge);
 // console.log(ages);
 
-function ageForVote(age) {
-  if (age < 18) {
-    return function(name) {
-      console.log(
-        name +
-          " you'r not eligible for voting. Your age is below 18. Your current age is: " +
-          age
-      );
-    };
-  } else if (age >= 18) {
-    return function(name) {
-      console.log(name + ' you can vote from now on.');
-    };
-  }
-}
+// function ageForVote(age) {
+//   if (age < 18) {
+//     return function(name) {
+//       console.log(
+//         name +
+//           " you'r not eligible for voting. Your age is below 18. Your current age is: " +
+//           age
+//       );
+//     };
+//   } else if (age >= 18) {
+//     return function(name) {
+//       console.log(name + ' you can vote from now on.');
+//     };
+//   }
+// }
 
-var a = ageForVote(18);
-a('Nayeem M. Muzahid');
-var a = ageForVote(17);
-a('Motin');
+// var a = ageForVote(18);
+// a('Nayeem M. Muzahid');
+// var a = ageForVote(17);
+// a('Motin');
 
-ageForVote(19)('Nepla');
+// ageForVote(19)('Nepla');
 
-(function() {
-  var score = Math.random() * 10;
-  console.log(score >= 5);
-})();
-(function(goodLuck) {
-  var score = Math.random() * 10;
-  console.log(score >= 5 - goodLuck);
-})(5);
+// (function() {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5);
+// })();
+// (function(goodLuck) {
+//   var score = Math.random() * 10;
+//   console.log(score >= 5 - goodLuck);
+// })(5);
+
+//ES5
+// var box = {
+//   position: 1,
+//   clickMe: function() {
+//     var self = this;
+//     document.querySelector('.lead').addEventListener('click', function() {
+//       var str = 'This is paragraph ' + self.position;
+//       alert(str);
+//     });
+//   }
+// };
+
+// box.clickMe();
+
+//ES6
+// var box = {
+//   position: 1,
+//   clickMe: function() {
+//     document.querySelector('.lead').addEventListener('click', () => {
+//       var str = 'This is paragraph ' + this.position;
+//       alert(str);
+//     });
+//   }
+// };
+// box.clickMe();
+
+var addForAges = function(a, b, c, d) {
+  return a + b + c + d;
+};
+
+console.log(addForAges(1, 1, 1, 1));
+
+//ES5
+
+var ages = [1, 1, 1, 1];
+var sum1 = addForAges.apply(null, ages);
+console.log(sum1);
+
+//ES6
+console.log(addForAges(...ages));
+
+var familyStark = ['Sansa', 'Arya', 'Bran'];
+var familyLannister = ['Cersei', 'Tyrion', 'Jamie'];
+
+var kingsLanding = [...familyStark, ...familyLannister, 'Tywin'];
+console.log(kingsLanding);

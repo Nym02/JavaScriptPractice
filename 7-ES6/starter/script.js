@@ -1,3 +1,44 @@
+// var h = document.querySelector('h1');
+// var boxes = document.querySelectorAll('.box');
+
+// var all = [h, ...boxes];
+
+// Array.from(all).forEach(cur => (cur.style.color = 'purple'));
+
+//rest parameter
+
+// var isFullAge = function() {
+//   var argsArr = Array.prototype.slice.call(arguments);
+
+//   argsArr.forEach(function(cur) {
+//     console.log(2019 - cur >= 18);
+//   });
+// };
+
+// //isFullAge(2008, 1980, 2005, 1982);
+
+// //es6
+
+// var isFullAge6 = function(...years) {
+//   years.forEach(cur => console.log(2019 - cur >= 18));
+// };
+// isFullAge6(2008, 1980, 2005, 1982, 1888);
+var isFullAge = function(limit) {
+  var argsArr = Array.prototype.slice.call(arguments, 1);
+
+  argsArr.forEach(function(cur) {
+    console.log(2019 - cur >= limit);
+  });
+};
+
+//isFullAge(100, 2008, 1980, 2005, 1982);
+
+//es6
+
+var isFullAge6 = function(limit, ...years) {
+  years.forEach(cur => console.log(2019 - cur >= limit));
+};
+isFullAge6(100, 2008, 1980, 2005, 1982, 1988);
 //  var person = function(firstName,lastName,age,Nationality){
 //     Nationality === undefined ? Nationality = "Bangladesh" : Nationality = Nationality;
 
