@@ -15,8 +15,8 @@ new Vue({
       this.title = 'Hello';
       return 'Hello';
     },
-    increaseCounter: function(step, event) {
-      this.counter += step;
+    increaseCounter: function() {
+      this.counter++;
     },
     updateCoordinates: function(event) {
       this.x = event.clientX;
@@ -24,6 +24,36 @@ new Vue({
     },
     alertMe: function() {
       alert('You Sure?');
+    }
+  },
+  watch: {
+    counter: function(value) {
+      var vm = this;
+      setTimeout(function() {
+        vm.counter = 0;
+      }, 3000);
+    }
+  }
+});
+
+new Vue({
+  el: '.app2',
+  data: {
+    attachRed: false,
+    color: 'green',
+    width: 100
+  },
+  computed: {
+    classes: function() {
+      return {
+        red: this.attachRed
+      };
+    },
+    myStyle: function() {
+      return {
+        backgroundColor: this.color,
+        width: this.width + 'px'
+      };
     }
   }
 });
