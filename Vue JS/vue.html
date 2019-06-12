@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="vue.css" />
   </head>
   <body>
-    <div class="app">
+    <!-- <div class="app">
       <input type="text" v-on:input="changeTitle" v-model="title" />
       <p>{{ title }}</p>
-      <!-- <h1 v-once>{{ title }}</h1>
-      <p>{{ sayHello() }} - <a v-bind:href="link" target="_blank">Google</a></p> -->
+       <h1 v-once>{{ title }}</h1>
+      <p>{{ sayHello() }} - <a v-bind:href="link" target="_blank">Google</a></p> 
 
       <button v-on:click="increaseCounter">Click Me</button>
       <p>{{ counter }}</p>
@@ -36,6 +36,32 @@
 
       <input type="text" name="" id="" v-model="color" />
       <input type="text" name="" id="" v-model="width" />
+    </div> -->
+
+    <div class="app">
+      <!-- <p v-if="show">You can see me</p>
+      <p v-else>You can't see me</p>
+      <p v-show="show">Do you also see me?</p>
+      <button @click="show = !show">Toggle</button> -->
+
+      <ul>
+        <li v-for="(ingridient,i) in ingridients">
+          {{ ingridient }} ({{ i }})
+        </li>
+      </ul>
+      <hr />
+      <ul>
+        <li v-for="person in persons">
+          <div v-for="(value,key,i) in person">
+            {{ key }} : {{ value }} ({{ i }} )
+          </div>
+        </li>
+      </ul>
+      <hr />
+      <template v-for="(ingridient,i) in ingridients">
+        <h1>{{ ingridient }}</h1>
+        <p>{{ i }}</p>
+      </template>
     </div>
 
     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
